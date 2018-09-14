@@ -1,0 +1,57 @@
+body{
+  background-image: url('http://vueanalytics.co/wp-content/uploads/2018/07/the-black-and-white-beach-photos-artist-bio.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  color: black;
+  text-shadow: 2px 2px grey;
+  font-family: "Annie Use Your Telescope", cursive;
+}
+#title{
+  width: 200px;
+  border: 2px solid grey;
+  box-shadow: 2px 2px grey;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size:24px;
+  font-weight: 400;
+  color: #222222;
+  letter-spacing: 1px;
+  background-color: lightgrey;
+}
+#body{
+  width: 700px;
+  height: 80px;
+  border: 2px solid grey;
+  box-shadow: 2px 2px grey;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size:24px;
+  font-weight: 400;
+  color: #222222;
+  letter-spacing: 1px;
+  background-color: lightgrey;
+}
+#author{
+  width: 200px;
+  border: 2px solid grey;
+  box-shadow: 2px 2px grey;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size:24px;
+  font-weight: 400;
+  color: #222222;
+  margin-left: 500px;
+  letter-spacing: 1px;
+  background-color: lightgrey;
+}
+#send{
+  border: 0px solid grey;
+  background-color: lightgreen;
+  height: 40px;
+  width: 240px;
+  cursor: pointer;
+  margin-left: 250px;
+  border-radius: 10px;
+  color: black;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 24px;
+}

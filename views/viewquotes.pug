@@ -1,0 +1,27 @@
+html
+  head
+    title quote app
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    link(rel="stylesheet", href="/viewquotes/viewquotes.css")
+
+  body
+    div.tags.container
+    br
+    div.viewquotes.container
+
+  script(type='text/javascript').
+    $.ajax({
+       type : "get",
+       url : '/get/quotes',
+       contentType : "application/json",
+       dataType : 'json',
+       success : function(data){
+
+         for(var i = 0 ; i < data.length ; i++)
+         {
+            $('.viewquotes').append("<div class='well'><p class='title'>"+data[i].title+"</p><form class='delete' action=/delete/"+data[i]._id+"/quote  method='post'><button class='btn-danger submit'>delete</button></form><p class='body'>"+data[i].body+"</p><p class='author'> ~ "+data[i].author+"</p></div>");
+         }
+       }
+    })

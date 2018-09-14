@@ -1,0 +1,23 @@
+html
+  head
+    title quote app
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    link(rel="stylesheet", href="/quote.css")
+
+  body
+    .container
+      h1.text-center Quote APP
+      br
+      form(action='/post', method='POST')
+        input#title(type='text',placeholder='Tag',name='title')
+        br
+        br
+        input#body(type='text',placeholder='Quote',name='body')
+        br
+        br
+        input#author(type='text',placeholder='~~ Author',name='author')
+        br
+        br
+        input#send.btn-success(type='submit', value='Send')
