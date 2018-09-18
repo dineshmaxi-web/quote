@@ -27,6 +27,12 @@ app.get('/get/quotes',function(req,res){
   })
 });
 
+app.post('/view/quote/tag/:title',function(req,res){
+  quote.find({title: req.params.title} , function(err, searchitems){
+    res.render('tags', {quotes: searchitems});
+  })
+});
+
 app.post('/delete/:id/quote',function(req,res){
   quote.findOneAndDelete({_id: req.params.id},function(deleteditem){
     res.redirect('/viewquotes')

@@ -7,7 +7,8 @@ html
     link(rel="stylesheet", href="/viewquotes/viewquotes.css")
 
   body
-    div.tags.container
+    center
+      div.tags.row.container
     br
     div.viewquotes.container
 
@@ -18,6 +19,11 @@ html
        contentType : "application/json",
        dataType : 'json',
        success : function(data){
+
+         for(var i = 0 ; i < data.length ; i++)
+         {
+            $('.tags').append("<div class='col-xs-1'><i><form action=/view/quote/tag/"+data[i].title+" method='post'><button>"+data[i].title+"</button></form></i></div>");
+         }
 
          for(var i = 0 ; i < data.length ; i++)
          {

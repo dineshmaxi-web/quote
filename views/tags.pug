@@ -7,12 +7,14 @@ html
     link(rel="stylesheet", href="/viewquotes/viewquotes.css")
 
   body
-  div.tags.container
-    i.uniqueTag data[i].title
-      &nbsp;
-  br
-  div.viewquotes.container
-    .well
-      p.title data[i].title
-      p.body data[i].body
-      p.author data[i].authors
+    div.container
+      br
+      a(href='/viewquotes') &nbsp;&nbsp;&nbsp; <-- B a c k
+    div.tags.container
+      div.viewquotes.container
+        br
+        .well
+          each quote in quotes
+            p.title #{quote.title}
+            p.body #{quote.body}
+            p.author ~ #{quote.author}
