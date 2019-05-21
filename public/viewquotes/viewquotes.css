@@ -50,6 +50,20 @@ body{
   font-weight: bold;
   border:none;
 }
+.update
+{
+  font-size: 17px;
+  letter-spacing: 1px;
+  float: right;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-weight: bold;
+}
+.input_body{
+  width : 50%;
+}
+.input_author{
+  width : 20%;
+}
 .delete:hover{
   color: red;
 }
