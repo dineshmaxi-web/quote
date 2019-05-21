@@ -4,20 +4,22 @@ var quote = require('./models/quote.js');
 var mongoose = require('mongoose');
 var app = express();
 
-mongoose.connect('mongodb://ram:fakepass1@ds157742.mlab.com:57742/quoteapp');
+mongoose.connect("mongodb+srv://dinesh:dinesh@cluster0-lmevm.mongodb.net/test?retryWrites=true");
+
+//Change the  database username and password, which you created in mlab
 
 app.set("view engine", "pug");
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/',function(req,res){
+app.get('/viewquotes',function(req,res){
   res.render('landing');
 });
 
-app.get('/viewquotes',function(req,res){
+app.get('/',function(req,res){
   res.render('viewquotes');
 });
 
@@ -31,6 +33,12 @@ app.post('/view/quote/tag/:title',function(req,res){
   quote.find({title: req.params.title} , function(err, searchitems){
     res.render('tags', {quotes: searchitems});
   })
+});
+
+app.post('/update/:id/quote',function(req,res){
+quote.findOneAndUpdate({_id: req.params.id}, {$set:{body:req.body.body, author:req.body.author}}, {new: true}, (err, doc) => {
+    res.render('viewquotes')
+});
 });
 
 app.post('/delete/:id/quote',function(req,res){

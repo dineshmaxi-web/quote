@@ -8,9 +8,14 @@ html
 
   body
     center
+      br
+      a(href='/')
+        b Post quotes
+      div.update_form
       div.tags.row.container
     br
     div.viewquotes.container
+    
 
   script(type='text/javascript').
     $.ajax({
@@ -20,14 +25,20 @@ html
        dataType : 'json',
        success : function(data){
 
-         for(var i = 0 ; i < data.length ; i++)
-         {
-            $('.tags').append("<div class='col-xs-1'><i><form action=/view/quote/tag/"+data[i].title+" method='post'><button>"+data[i].title+"</button></form></i></div>");
-         }
+      //   for(var i = 0 ; i < data.length ; i++)
+      //   {
+      //      $('.tags').append("<div class='col-xs-1'><i><form action=/view/quote/tag/"+data[i].title+" method='post'><button>"+data[i].title+"</button></form></i></div>");
+      //   }
 
          for(var i = 0 ; i < data.length ; i++)
          {
-            $('.viewquotes').append("<div class='well'><p class='title'>"+data[i].title+"</p><form class='delete' action=/delete/"+data[i]._id+"/quote  method='post'><button class='btn-danger submit'>delete</button></form><p class='body'>"+data[i].body+"</p><p class='author'> ~ "+data[i].author+"</p></div>");
+            $('.viewquotes').append("<div class='well'><p class='title'>"+data[i].title+"</p><form class='delete' action=/delete/"+data[i]._id+"/quote  method='post'><button class='btn-danger submit'>delete</button></form><button class='update btn-primary' onclick='updateFunc(\""+data[i]._id+"\",\""+data[i].body+"\",\""+data[i].author+"\")'>Update</button><p class='body'>"+data[i].body+"</p><p class='author'> ~ "+data[i].author+"</p></div>");
          }
        }
     })
+    
+    
+   function updateFunc(id,body,author)
+   {
+     $(".update_form").html("<div class='well'><form action=/update/"+id+"/quote  method='post' class='update_form'><input class='input_body' name='body' type='text' value='"+body+"'><input class='input_author' name='author' type='text' value='"+author+"'><button class='btn-primary submit'>Update</button></form></div>");
+   } 
